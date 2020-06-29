@@ -17,6 +17,7 @@ const result = mapArray(names, nameLength);
 console.log(result);
 
 //-----------------------------------------
+
 function greeting(firstName) {
   return function (lastName) {
     return `Hello, ${firstName} ${lastName}`;
@@ -27,3 +28,17 @@ const fullName = testGreeting("Kozhaisakov");
 const fullName2 = greeting("Mustafa")("Kozhaisakov!");
 console.log(fullName);
 console.log(fullName2);
+
+//-----------------------------------------
+
+function question(job) {
+  jobDictionary = {
+    developer: "что такое JavaScript?",
+    teacher: "какой предмет вы ведете?",
+  };
+  return function (name) {
+    return `${name}, ${jobDictionary[job]}`;
+  };
+}
+const developerQuestion = question("developer");
+console.log(developerQuestion("Mustafa"));
