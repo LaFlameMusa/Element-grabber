@@ -1,13 +1,29 @@
-function grabber(name) {
-  let elem = document.getElementById(name);
-  return elem;
-}
+const names = ["Musa", "Sasha", "Alim", "Beka"];
 
-function calculate() {
-  if (!arguments.length) return 0;
-  let res = 1;
-  for (let i = 0; i < arguments.length; i++) {
-    res *= arguments[i];
+function mapArray(arr, fn) {
+  const res = [];
+  for (let i = 0; i < arr.length; i++) {
+    res.push(fn(arr[i]));
   }
   return res;
 }
+
+function nameLength(el) {
+  console.log(el);
+  return el.toUpperCase();
+}
+
+const result = mapArray(names, nameLength);
+console.log(result);
+
+//-----------------------------------------
+function greeting(firstName) {
+  return function (lastName) {
+    return `Hello, ${firstName} ${lastName}`;
+  };
+}
+const testGreeting = greeting("Mustafa");
+const fullName = testGreeting("Kozhaisakov");
+const fullName2 = greeting("Mustafa")("Kozhaisakov!");
+console.log(fullName);
+console.log(fullName2);
